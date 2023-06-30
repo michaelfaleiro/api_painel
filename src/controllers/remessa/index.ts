@@ -13,13 +13,32 @@ const create = async (
   }
 };
 
+const findone = async (req: Request, res: Response): Promise<Response> => {
+  try {
+    const { id } = req.params;
+    const remessa = await Remessa.findById(id);
+    if (!remessa) {
+      return res.status(404).send({
+        message: "Id is not found!",
+      });
+    }
+    return res.status(200).json({
+      remessa: remessa,
+    });
+  } catch (error) {
+    return res.status(400).send(error.message);
+  }
+};
+
 const getAll = async (
   req: Request<{}, {}, IRemessa>,
   res: Response
 ): Promise<Response> => {
   try {
     const remessas = await Remessa.find();
-    return res.status(200).send(remessas);
+    return res.status(200).send({
+      remessas: remessas,
+    });
   } catch (error) {
     return res.status(400).send(error.message);
   }
@@ -37,4 +56,4 @@ const destroy = async (req: Request, res: Response): Promise<Response> => {
   }
 };
 
-export const RemessaController = { create, getAll, destroy };
+export const RemessaController = { create, getAll, findone, destroy };
