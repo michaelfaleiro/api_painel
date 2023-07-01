@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export const RemessaSchema = z.object({
+  id: z.string().optional(),
   numeroPedido: z.number().int().positive(),
   numeroNfe: z.number().int().positive(),
   dataPedido: z.string().datetime(),
