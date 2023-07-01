@@ -1,13 +1,5 @@
 import { model, Schema, Document } from "mongoose";
-
-export interface IRemessa extends Document {
-  id: string;
-  numeroPedido: number;
-  dataPedido: Date;
-  numeroNfe: number;
-  nomeCliente: string;
-  emailCliente: string;
-}
+import { TRemessa } from "../../schemas/remessa.schema";
 
 const RemessaSchema = new Schema(
   {
@@ -37,4 +29,4 @@ const RemessaSchema = new Schema(
   }
 );
 
-export default model<IRemessa>("Remessa", RemessaSchema);
+export default model<TRemessa>("Remessa", RemessaSchema);
