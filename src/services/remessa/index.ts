@@ -1,25 +1,44 @@
 import Remessa from "../../models/remessa";
 import { TRemessa } from "../../schemas/remessa.schema";
 
-export const createService = async (body: TRemessa) => {
-  await Remessa.create(body);
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+export const createService = async (body) => {
+  await prisma.remessa.create({
+    data: body,
+  });
 };
 
 export const findService = async () => {
-  const data = await Remessa.find();
+  const data = await prisma.remessa.findMany();
   return data;
 };
 
 export const findByIdService = async (id: string) => {
-  const data = await Remessa.findById(id);
+  const data = await prisma.remessa.findUnique({
+    where: {
+      id: id,
+    },
+  });
   return data;
 };
 
 export const updateService = async (id: string, body: TRemessa) => {
-  const data = await Remessa.findByIdAndUpdate({ _id: id }, body);
+  const data = await prisma.remessa.update({
+    where: {
+      id: id,
+    },
+    data: body,
+  });
   return data;
 };
 
 export const destroyService = async (id: string) => {
-  await Remessa.findByIdAndDelete(id);
+  await prisma.remessa.delete({
+    where: {
+      id: id,
+    },
+  });
 };

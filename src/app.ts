@@ -3,9 +3,9 @@ import cors from "cors";
 import morgan from "morgan";
 
 require("dotenv").config();
-require("./database/index.ts");
 
-import { route } from "./routes/pedidos";
+import { route } from "./routes/remessa";
+import { routeProduto } from "./routes/produto";
 
 export const app = express();
 
@@ -14,3 +14,4 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.use("/api", route);
+app.use("/api", routeProduto);

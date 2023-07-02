@@ -1,4 +1,4 @@
-import { model, Schema, Document } from "mongoose";
+import mongoose, { model, Schema } from "mongoose";
 import { TRemessa } from "../../schemas/remessa.schema";
 
 const RemessaSchema = new Schema(
@@ -23,6 +23,12 @@ const RemessaSchema = new Schema(
       type: String,
       required: true,
     },
+    produto: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Produto",
+      },
+    ],
   },
   {
     timestamps: true,

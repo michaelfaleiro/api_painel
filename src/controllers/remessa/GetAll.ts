@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { TRemessa } from "../../schemas/remessa.schema";
 import { findService } from "../../services/remessa";
+import { unknown } from "zod";
 
 interface IQueryProps {
   page?: number;
@@ -10,7 +11,7 @@ interface IQueryProps {
 
 export const getAll = async (
   req: Request,
-  res: Response<TRemessa[]>
+  res: Response
 ): Promise<Response> => {
   try {
     const remessas = await findService();
