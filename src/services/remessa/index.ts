@@ -11,7 +11,11 @@ export const createService = async (body) => {
 };
 
 export const findService = async () => {
-  const data = await prisma.remessa.findMany();
+  const data = await prisma.remessa.findMany({
+    include: {
+      produtos: true,
+    },
+  });
   return data;
 };
 

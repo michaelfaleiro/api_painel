@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
 import { destroyService, findByIdService } from "../../services/remessa";
+import { TRemessa } from "../../schemas/remessa.schema";
 
 export const destroy = async (
-  req: Request,
+  req: Request<any, {}, TRemessa>,
   res: Response
 ): Promise<Response> => {
   try {

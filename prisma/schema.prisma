@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Remessa {
-  id           String    @id @default(uuid()) @db.Uuid
+  id           String    @id @default(uuid())
   numeroPedido Int
   numeroNfe    Int
   dataPedido   DateTime
@@ -21,11 +21,10 @@ model Remessa {
 }
 
 model Produto {
-  id          String @id @default(uuid()) @db.Uuid
+  id          String   @id @default(uuid())
   sku         String
   nomeProduto String
-  quantidade  String
-
-  Remessa   Remessa? @relation(fields: [remessaId], references: [id])
-  remessaId String?  @db.Uuid
+  quantidade  Int
+  Remessa     Remessa? @relation(fields: [remessaId], references: [id])
+  remessaId   String?
 }

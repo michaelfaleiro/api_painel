@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "Remessa" (
-    "id" UUID NOT NULL,
+    "id" TEXT NOT NULL,
     "numeroPedido" INTEGER NOT NULL,
     "numeroNfe" INTEGER NOT NULL,
     "dataPedido" TIMESTAMP(3) NOT NULL,
@@ -12,11 +12,11 @@ CREATE TABLE "Remessa" (
 
 -- CreateTable
 CREATE TABLE "Produto" (
-    "id" UUID NOT NULL,
+    "id" TEXT NOT NULL,
     "sku" TEXT NOT NULL,
     "nomeProduto" TEXT NOT NULL,
-    "quantidade" TEXT NOT NULL,
-    "remessaId" UUID,
+    "quantidade" INTEGER NOT NULL,
+    "remessaId" TEXT,
 
     CONSTRAINT "Produto_pkey" PRIMARY KEY ("id")
 );
