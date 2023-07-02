@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
-import { TRemessa } from "../../schemas/remessa.schema";
 import { findService } from "../../services/remessa";
-import { unknown } from "zod";
 
 interface IQueryProps {
   page?: number;

@@ -1,4 +1,3 @@
-import Remessa from "../../models/remessa";
 import { TRemessa } from "../../schemas/remessa.schema";
 
 import { PrismaClient } from "@prisma/client";
