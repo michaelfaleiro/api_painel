@@ -1,9 +1,8 @@
 import { Router } from "express";
 
-import { schemaValidation } from "../../middlewares/remessavalidation";
-
 import { RemessaSchema } from "../../schemas/remessa.schema";
 import { RemessaController } from "../../controllers/remessa";
+import { schemaValidation } from "../../middlewares/remessavalidation";
 
 const route = Router();
 
