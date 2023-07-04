@@ -24,6 +24,9 @@ export const findByIdService = async (id: string) => {
     where: {
       id: id,
     },
+    include: {
+      produtos: true,
+    },
   });
   return data;
 };

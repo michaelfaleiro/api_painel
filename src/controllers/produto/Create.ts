@@ -6,9 +6,14 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const create = async (req: Request<{}, {}, TProduto>, res: Response) => {
+export const create = async (
+  req: Request<any, {}, TProduto>,
+  res: Response
+) => {
   try {
-    const produto = await createService(req.body);
+    const id = req.params.id;
+
+    const produto = await createService(req.body, id);
 
     res.status(201).send({ produto });
   } catch (error) {

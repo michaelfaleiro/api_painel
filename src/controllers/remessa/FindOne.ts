@@ -14,9 +14,7 @@ export const findone = async (
         message: "Register is not found!",
       });
     }
-    return res.status(200).json({
-      remessa,
-    });
+    return res.status(200).json(remessa);
   } catch (error) {
     return res.status(400).send(error.message);
   }
