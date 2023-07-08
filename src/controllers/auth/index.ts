@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { TUser } from "../../schemas/auth.schema";
 import { Request, Response } from "express";
 import { generateToken, loginService } from "../../services/auth";
